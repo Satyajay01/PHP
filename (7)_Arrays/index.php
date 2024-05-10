@@ -70,4 +70,25 @@ foreach ($mynumber as $element) {
 // https://www.w3schools.com/php/php_arrays_sort.asp
 
 
+
+echo "<br><br>";
+// Associative Array-----------------------
+
+$employees = array(
+    "Satyajay"=> "Software Engineer",
+    "Abhi"=> "Web Developer",
+    "Ravi"=> "App Developer",
+);
+
+?>
+
+
+<?php
+
+foreach($employees as $key => $value){
+    ?>
+    <p> <?php echo $key ?></p> <p> <?php echo $value ?></p> 
+    <?php }
+
+
 ?>
