@@ -35,5 +35,33 @@ echo sqrt(100)."<br>"; // value return square root
 echo round(9.6)."<br>";  // return round off value
 echo rand()."<br>"; // return random number
 echo rand(1,9); // return random number
+echo"<br><br>";
+
+
+
+// isset() and empty() Function...................
+echo("isset() and empty() Function....................... <br>");
+
+/*
+isset() 
+retun True, if a variable is declared and not null.
+
+empty() 
+retun True, if a variable is not declared (false, null, "").
+*/
+
+$name = "Satyajay";
+
+echo isset($name)."<br>";
+echo empty($name)."<br>"; // Will not be visible if 0 is returned
+
+
+
+if(isset($name)){
+    echo "True";
+}
+else{
+    echo "False"; 
+}
 
 ?>
