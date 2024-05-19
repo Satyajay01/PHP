@@ -1,3 +1,12 @@
+<?php
+include("config/database.php");
+
+// show all Users
+$sql = "SELECT * FROM users";
+$result = $conn->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,30 +31,27 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                if($result->num_rows > 0){
+
+                
+                while($row=mysqli_fetch_assoc($result))
+                {
+                ?>
                 <tr>
-                    <td>Satyajay</td>
-                    <td>5/16/2024, 09:28 pm</td>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo date("d-m-y H:i A",strtotime($row['date'])); ?></td>
                     <td>
                         <a href="#" class="button edit">Edit</a>
                         <a href="#" class="button delete">Delete</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>Satya</td>
-                    <td>5/17/2024, 10:28 pm</td>
-                    <td>
-                        <a href="#" class="button edit">Edit</a>
-                        <a href="#" class="button delete">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Satyajay</td>
-                    <td>5/18/2024, 11:28 pm</td>
-                    <td>
-                        <a href="#" class="button edit">Edit</a>
-                        <a href="#" class="button delete">Delete</a>
-                    </td>
-                </tr>
+                <?php }
+            
+            } else{
+                echo"<tr><td colspan='3'>No Record Found ! </td></tr>";
+            }
+            ?>
             </tbody>
         </table>
 
