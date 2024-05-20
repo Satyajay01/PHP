@@ -42,7 +42,7 @@ $result = $conn->query($sql);
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo date("d-m-y H:i A",strtotime($row['date'])); ?></td>
                     <td>
-                        <a href="#" class="button edit">Edit</a>
+                        <a href="edit-user.php?id=<?php echo $row['id']; ?>" class="button edit">Edit</a>  // get user's data ,by user id for user datal Edit
                         <a href="#" class="button delete">Delete</a>
                     </td>
                 </tr>
