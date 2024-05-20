@@ -1,3 +1,24 @@
+<?php
+
+include("config/database.php");
+
+if(isset($_POST['submit'])){ // submit button name
+
+    extract($_POST); // extract is a super global variable (So that there is no need to create separate variables for everyone.)
+
+    $date =date("Y-m-d H:i:s"); // for the current date
+    $sql = "INSERT INTO users(username, password, date) VAlUES ('$username', '$password', '$date')";
+
+   $result = $conn->query($sql);
+   if ($result) {
+    echo"User has been Created";
+   }
+   else{
+    echo"Something went wrong, please try again";
+   }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +45,11 @@
                 <button type="submit" name="submit">Signup</button>
             </div>
         </form>
+
         <div class="container" style="background-color:#f1f1f1">
             <a href="users.php" class="footerbtn">All Users</a>
+
+            <a href="logout.php" class="footerbtn">Logout</a>
 
         </div>
     </section>
