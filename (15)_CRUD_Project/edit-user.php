@@ -2,6 +2,40 @@
 
 include("config/database.php");
 
+// step 1 to gate Edited user data
+if(isset($_GET['id'])){
+
+     $sql = "SELECT * FROM users WHERE id= ".$_GET['id'];
+     $result= $conn->query($sql);
+
+    $edited_user = mysqli_fetch_assoc($result); //mysqli_fetch_assoc stores data in a new variable
+    // echo "<pre>";
+    // print_r($edited_user);
+    // exit;
+}
+else{
+
+    echo "Invalid Request";
+    exit;
+}
+
+// step 2 
+if(isset($_POST['submit'])){ // submit button name
+
+    extract($_POST); // extract is a super global variable (So that there is no need to create separate variables for everyone.)
+
+//    echo $sql = "UPDATE users SET username='$username', password='$password' WHERE id=".$_GET['id'];
+    $sql = "UPDATE users SET username='$username', password='$password' WHERE id=".$_GET['id'];
+
+   $result = $conn->query($sql);
+   if ($result) {
+    echo"<h1>User has been Updated</h1>";
+
+   }
+   else{
+    echo"Something went wrong, please try again";
+   }
+}
 
 ?>
 
@@ -20,15 +54,15 @@ include("config/database.php");
     <section class="section">
         <h2>Edit User</h2>
 
-        <form action="add-user.php" method="post">
+            <form action="edit-user.php?id=<?php echo $_GET['id'] ?>" method="post">   <!-- Invalid Request error handling -->
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
+                <input type="text" placeholder="Enter Username" name="username" required value="<?php echo $edited_user['username'] ?>">
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" required>
+                <input type="text" placeholder="Enter Password" name="password" required value="<?php echo $edited_user['password'] ?>">
 
-                <button type="submit" name="submit">Signup</button>
+                <button type="submit" name="submit">Update</button>
             </div>
         </form>
 
