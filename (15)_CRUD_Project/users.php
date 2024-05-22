@@ -22,7 +22,8 @@ $result = $conn->query($sql);
 
 
 // echo $_SESSION['name']; 
-echo $_SESSION['success']; 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +39,7 @@ echo $_SESSION['success'];
 
 <body>
     <section class="section">
+        <?php include("include/alert.php"); ?>
         <h2>All Users</h2>
 
         <table id="users">

@@ -29,12 +29,15 @@ if(isset($_POST['submit'])){ // submit button name
 
    $result = $conn->query($sql);
    if ($result) {
-    echo"<h1>User has been Updated</h1>";
 
+    $_SESSION['success']="<h1>User has been Updated</h1>";
    }
    else{
-    echo"Something went wrong, please try again";
+
+    $_SESSION['error']="<h1>Something went wrong, please try again</h1>?";
    }
+
+   header("LOCATION: users.php");
 }
 
 ?>
