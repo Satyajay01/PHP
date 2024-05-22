@@ -13,11 +13,15 @@ if(isset($_POST['submit'])){ // submit button name
 
    $result = $conn->query($sql);
    if ($result) {
-    echo"User has been Created";
+
+    $_SESSION['success']="User has been Created";
    }
    else{
-    echo"Something went wrong, please try again";
+
+    $_SESSION['error']="Something went wrong, please try again";
    }
+
+   header("LOCATION: users.php");
 }
 ?>
 

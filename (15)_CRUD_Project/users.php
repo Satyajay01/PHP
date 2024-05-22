@@ -21,7 +21,8 @@ $result = $conn->query($sql);
 
 
 
-echo $_SESSION['name'];  
+// echo $_SESSION['name']; 
+echo $_SESSION['success']; 
 ?>
 
 <!DOCTYPE html>
