@@ -2,6 +2,8 @@
 
 include("config/database.php");
 
+$_SESSION['name']= "hello world"; // $_SESSION is a globale variable, $_SESSION can be used in all pages ( like users.php page) by creating a variable.
+
 if(isset($_POST['submit'])){ // submit button name
 
     extract($_POST); // extract is a super global variable (So that there is no need to create separate variables for everyone.)

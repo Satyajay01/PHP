@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 
 
 
-
+echo $_SESSION['name'];  
 ?>
 
 <!DOCTYPE html>
