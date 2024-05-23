@@ -1,6 +1,7 @@
 <?php
 
 include("config/database.php");
+include("middleware.php"); // To do page restriction, it has to be included in all pages.
 
 $_SESSION['name']= "hello world"; // $_SESSION is a globale variable, $_SESSION can be used in all pages ( like users.php page) by creating a variable.
 

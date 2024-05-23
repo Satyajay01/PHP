@@ -1,6 +1,7 @@
 <?php
 
 include("config/database.php");
+include("middleware.php"); // To do page restriction, it has to be included in all pages.
 
 // step 1 to gate Edited user data
 if(isset($_GET['id'])){

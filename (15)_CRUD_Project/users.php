@@ -1,5 +1,6 @@
 <?php
 include("config/database.php");
+include("middleware.php"); // To do page restriction, it has to be included in all pages.
 
 // delete user data
 if (isset($_GET['id'])) {
@@ -78,6 +79,8 @@ $result = $conn->query($sql);
 
         <div class="container" style="background-color:#f1f1f1">
             <a href="add-user.php" class="footerbtn">Add User</a>
+            <a href="logout.php" class="footerbtn">Logout</a>
+
         </div>
     </section>
 
