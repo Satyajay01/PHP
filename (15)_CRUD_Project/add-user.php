@@ -9,7 +9,8 @@ if(isset($_POST['submit'])){ // submit button name
     extract($_POST); // extract is a super global variable (So that there is no need to create separate variables for everyone.)
 
     $date =date("Y-m-d H:i:s"); // for the current date
-    $sql = "INSERT INTO users(username, password, date) VAlUES ('$username', '$password', '$date')";
+    $pass = md5($password); // md5 (Password Encryption)
+    $sql = "INSERT INTO users(username, password, date) VAlUES ('$username', '$pass', '$date')";
 
    $result = $conn->query($sql);
    if ($result) {

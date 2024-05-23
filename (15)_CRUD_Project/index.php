@@ -5,8 +5,9 @@ include("config/database.php");
 if(isset($_POST['submit'])){ // login form submit
     extract($_POST); // extract is a super global variable (So that there is no need to create separate variables for everyone.)
 
+    $pass = md5($password); // md5 (Password Decryption)
     // sql query to login
-    $sql="SELECT * FROM users WHERE username ='$username' AND password='$password' ";
+    $sql="SELECT * FROM users WHERE username ='$username' AND password='$pass' ";
     $result=$conn->query($sql);
     if ($result->num_rows) {
         $_SESSION['is_user_loggedin']=true;

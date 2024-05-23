@@ -25,7 +25,8 @@ if(isset($_POST['submit'])){ // submit button name
     extract($_POST); // extract is a super global variable (So that there is no need to create separate variables for everyone.)
 
 //    echo $sql = "UPDATE users SET username='$username', password='$password' WHERE id=".$_GET['id'];
-    $sql = "UPDATE users SET username='$username', password='$password' WHERE id=".$_GET['id'];
+    // $sql = "UPDATE users SET username='$username', password='$password' WHERE id=".$_GET['id'];
+    $sql = "UPDATE users SET username='$username' WHERE id=".$_GET['id'];
 
    $result = $conn->query($sql);
    if ($result) {
@@ -62,9 +63,12 @@ if(isset($_POST['submit'])){ // submit button name
                 <label for="uname"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required value="<?php echo $edited_user['username'] ?>">
 
-                <label for="psw"><b>Password</b></label>
-                <input type="text" placeholder="Enter Password" name="password" required value="<?php echo $edited_user['password'] ?>">
-
+                <?php 
+                    /*
+                    <label for="psw"><b>Password</b></label>
+                    <input type="text" placeholder="Enter Password" name="password" required value="<?php echo $edited_user['password'] ?>">
+                    */
+                ?>
                 <button type="submit" name="submit">Update</button>
             </div>
         </form>
