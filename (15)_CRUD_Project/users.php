@@ -12,6 +12,7 @@ if (isset($_GET['id'])) {
     else{
         echo"</h1>Something went wrong, please try again</h1>";
     }
+    
 }
 
 // show all Users

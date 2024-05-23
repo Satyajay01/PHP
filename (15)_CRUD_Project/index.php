@@ -1,3 +1,25 @@
+<?php
+
+include("config/database.php");
+
+if(isset($_POST['submit'])){ // login form submit
+    extract($_POST); // extract is a super global variable (So that there is no need to create separate variables for everyone.)
+
+    // sql query to login
+    $sql="SELECT * FROM users WHERE username ='$username' AND password='$password' ";
+    $result=$conn->query($sql);
+    if ($result->num_rows) {
+        $_SESSION['is_user_loggedin']=true;
+        $_SESSION['is_user_data']=mysqli_fetch_assoc(($result));
+        header("LOCATION: users.php");
+    }
+    else{
+    $_SESSION['error']="<h1>Invalid login info</h1>";
+
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +34,7 @@
 <body>
 
     <section class="section">
+    <?php include("include/alert.php"); ?>
         <h2>Login Form</h2>
 
         <form action="index.php" method="post">
